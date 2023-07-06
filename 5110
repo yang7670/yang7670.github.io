@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>聊天通訊</title>
+  <style>
+    #chatbox {
+      width: 400px;
+      height: 300px;
+      border: 1px solid black;
+      overflow-y: scroll;
+    }
+
+    #inputbox {
+      width: 400px;
+    }
+  </style>
+</head>
+<body>
+  <div id="chatbox"></div>
+  <input type="text" id="inputbox" placeholder="輸入訊息..." />
+  <button onclick="sendMessage()">送出</button>
+
+  <script>
+    function sendMessage() {
+      var inputElement = document.getElementById("inputbox");
+      var message = inputElement.value;
+
+      if (message.trim() !== "") {
+        var chatboxElement = document.getElementById("chatbox");
+        var messageElement = document.createElement("p");
+        messageElement.textContent = message;
+        chatboxElement.appendChild(messageElement);
+        inputElement.value = "";
+      }
+    }
+  </script>
+</body>
+</html>
